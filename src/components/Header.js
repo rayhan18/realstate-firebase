@@ -5,7 +5,7 @@ import { useNavigate,useLocation } from 'react-router-dom'
 export default function Header() {
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(location)
+    //console.log(location)
 
 
     function pathMatchRoute(route) {
@@ -44,6 +44,14 @@ export default function Header() {
               onClick={() => navigate("/offers")}
             >
               Offers
+            </li>
+            <li
+              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
+                pathMatchRoute("/sign-in") && "text-black border-b-red-500"
+              }`}
+              onClick={() => navigate("/sign-in")}
+            >
+              Sign in
             </li>
             <li
               className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
