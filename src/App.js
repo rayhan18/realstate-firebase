@@ -3,7 +3,7 @@ import {  Routes ,Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Header from './components/Header';
 
-import ForgePassword from './Pages/ForgetPassword';
+import ForgePassword from './Pages/ForgotPassword';
 import Home from './Pages/Home';
 import Offers from './Pages/Offers';
 import Profile from './Pages/Profile';
@@ -22,7 +22,7 @@ function App() {
           <Route path="/Profile"  element={<Profile/>} />
           <Route path="/Sign-in"  element={<SignIn/>} />
           <Route path="/Sign-up"  element={<Signup/>} />
-          <Route path="/ForgePassword"  element={<ForgePassword/>} />
+          <Route path="/forgot-password"  element={<ForgePassword/>} />
           
          </Routes>
 
