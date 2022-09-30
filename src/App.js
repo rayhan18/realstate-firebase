@@ -7,9 +7,11 @@ import ForgePassword from './Pages/ForgotPassword';
 import Home from './Pages/Home';
 import Offers from './Pages/Offers';
 import Profile from './Pages/Profile';
+
 import SignIn from './Pages/SignIn';
 import Signup from './Pages/Signup';
 import 'react-toastify/dist/ReactToastify.css';
+import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
@@ -19,7 +21,11 @@ function App() {
         <Routes >
           <Route path="/"  element={<Home/>} />
           <Route path="/Offers"  element={<Offers/>} />
-          <Route path="/Profile"  element={<Profile/>} />
+          {/* //PrivateRoute */}
+             <Route path="/profile"  element={<PrivateRoute/>} >
+                <Route path="/profile"  element={<Profile/>} />
+              </Route>
+         
           <Route path="/Sign-in"  element={<SignIn/>} />
           <Route path="/Sign-up"  element={<Signup/>} />
           <Route path="/forgot-password"  element={<ForgePassword/>} />
