@@ -30,7 +30,10 @@ function App() {
           <Route path="/Sign-in"  element={<SignIn/>} />
           <Route path="/Sign-up"  element={<Signup/>} />
           <Route path="/forgot-password"  element={<ForgePassword/>} />
+          <Route path="/create-listing"  element={<PrivateRoute/>}>
           <Route path="/create-listing"  element={<CreateListing/>} />
+          </Route>
+          
           
          </Routes>
 

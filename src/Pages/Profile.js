@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 import { db } from "../firebase";
 import { FcHome } from "react-icons/fc";
 import { useEffect } from "react";
+import ListingItem from "../components/ListingItem";
 //import ListingItem from "../components/ListingItem";
 
 export default function Profile() {
@@ -79,6 +80,7 @@ export default function Profile() {
     }
     fetchUserListings();
   }, [auth.currentUser.uid]);
+  
   async function onDelete(listingID) {
     if (window.confirm("Are you sure you want to delete?")) {
       await deleteDoc(doc(db, "listings", listingID));
@@ -92,6 +94,9 @@ export default function Profile() {
   function onEdit(listingID) {
     navigate(`/edit-listing/${listingID}`);
   }
+
+
+
   return (
     <>
       <section className="max-w-6xl mx-auto flex justify-center items-center flex-col">
@@ -163,7 +168,7 @@ export default function Profile() {
               My Listings
             </h2>
             <ul className="sm:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-              {/* {listings.map((listing) => (
+              {listings.map((listing) => (
                 <ListingItem
                   key={listing.id}
                   id={listing.id}
@@ -171,7 +176,7 @@ export default function Profile() {
                   onDelete={() => onDelete(listing.id)}
                   onEdit={() => onEdit(listing.id)}
                 />
-              ))} */}
+              ))}
             </ul>
           </>
         )}
