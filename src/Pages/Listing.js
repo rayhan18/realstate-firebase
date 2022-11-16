@@ -11,6 +11,7 @@ import SwiperCore, {
   Navigation,
   Pagination,
 } from "swiper";
+
 import "swiper/css/bundle";
 import {
   FaShare,
@@ -21,8 +22,8 @@ import {
   FaChair,
 } from "react-icons/fa";
 import { getAuth } from "firebase/auth";
-//import Contact from "../components/Contact";
-//import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import Contact from "../components/Contact";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 export default function Listing() {
   const auth = getAuth();
@@ -136,28 +137,45 @@ export default function Listing() {
               {listing.furnished ? "Furnished" : "Not furnished"}
             </li>
           </ul>
-          {listing.userRef !== auth.currentUser?.uid && !contactLandlord && (
+          {/* {listing.userRef !== auth.currentUser?.uid && !contactLandlord && ( */}
             <div className="mt-6">
-              <button
+             
+               <button
                 onClick={() => setContactLandlord(true)}
                 className="px-7 py-3 bg-blue-600 text-white font-medium text-sm uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg w-full text-center transition duration-150 ease-in-out "
               >
                 Contact Landlord
               </button>
             </div>
-          )}
-          {/* {contactLandlord && ( */}
-            {/* // <Contact userRef={listing.userRef} listing={listing} /> */}
           {/* )} */}
+           {contactLandlord && ( 
+             <Contact userRef={listing.userRef} listing={listing} /> 
+          )} 
         </div>
         <div className="w-full h-[200px] md:h-[400px] z-10 overflow-x-hidden mt-6 md:mt-0 md:ml-2">
-          {/* <MapContainer
+          
+{/*           
+        <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+    <TileLayer
+      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+    <Marker position={position}>
+      <Popup>
+        A pretty CSS3 popup. <br /> Easily customizable.
+      </Popup>
+    </Marker>
+  </MapContainer> */}
+          
+          
+          
+          <MapContainer
             center={[listing.geolocation.lat, listing.geolocation.lng]}
             zoom={13}
             scrollWheelZoom={false}
             style={{ height: "100%", width: "100%" }}
-          > */}
-            {/* <TileLayer
+          > 
+             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
@@ -167,8 +185,8 @@ export default function Listing() {
               <Popup>
                 {listing.address}
               </Popup>
-            </Marker> */}
-          {/* </MapContainer> */}
+            </Marker> 
+           </MapContainer>
         </div>
       </div>
     </main>
