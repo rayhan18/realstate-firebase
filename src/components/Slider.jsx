@@ -64,7 +64,7 @@ const navigate =useNavigate()
               >
               <p className='text-[#eccea0] absolute left-1 top-3 font-medium p-1 max-w-[90%] bg-slate-50 '>{data.data.name}</p>
               <p className='text-[#eccea0] absolute left-1 bottom-1 font-medium p-2 max-w-[90%] bg-slate-100 '>
-                {data.data.discountedPrice ?? data.data.regularPrice} {data.data.type === 'rent' && '/month'}</p>
+                ${data.data.discountedPrice ?? data.data.regularPrice} {data.data.type === 'rent' && '/month'}</p>
               </div>
         </SwiperSlide>
     ))}
